@@ -1,6 +1,7 @@
 import Foundation
 import Quick
 import Nimble
+import SnapshotTesting
 
 @testable import ShoppingCart
 
@@ -9,8 +10,14 @@ class ProductListViewControllerSpec: QuickSpec {
         describe("ProductListViewController") {
             var sut: ProductListViewController!
         
-            it("should be true") {
+            beforeEach {
+                sut = ProductListViewController()
                 
+                _ = sut.view
+            }
+            
+            it("should show list of products") {
+                assertSnapshot(matching: sut, as: .image(on: .iPhone8))
             }
         }
     }

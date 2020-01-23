@@ -13,7 +13,8 @@
 		1B6D112923D9A6CB004E8A9D /* Quick in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 1B6D112823D9A6CB004E8A9D /* Quick */; };
 		1B6D112F23D9A799004E8A9D /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6D112E23D9A799004E8A9D /* ProductListViewController.swift */; };
 		1B6D113323D9A857004E8A9D /* ProductListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6D113223D9A857004E8A9D /* ProductListViewControllerSpec.swift */; platformFilter = ios; };
-		1B6D113C23D9B416004E8A9D /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 1B6D113B23D9B416004E8A9D /* Nimble */; };
+		1B6D113C23D9B416004E8A9D /* Nimble in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 1B6D113B23D9B416004E8A9D /* Nimble */; };
+		1B6D113F23D9B51C004E8A9D /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 1B6D113E23D9B51C004E8A9D /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B6D113F23D9B51C004E8A9D /* SnapshotTesting in Frameworks */,
 				1B6D112923D9A6CB004E8A9D /* Quick in Frameworks */,
 				1B6D113C23D9B416004E8A9D /* Nimble in Frameworks */,
 			);
@@ -168,6 +170,7 @@
 			packageProductDependencies = (
 				1B6D112823D9A6CB004E8A9D /* Quick */,
 				1B6D113B23D9B416004E8A9D /* Nimble */,
+				1B6D113E23D9B51C004E8A9D /* SnapshotTesting */,
 			);
 			productName = ShoppingCartTests;
 			productReference = 1B6D110A23D9A1D2004E8A9D /* ShoppingCartTests.xctest */;
@@ -205,6 +208,7 @@
 			packageReferences = (
 				1B6D112423D9A685004E8A9D /* XCRemoteSwiftPackageReference "Quick" */,
 				1B6D113A23D9B416004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */,
+				1B6D113D23D9B51C004E8A9D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 1B6D10F523D9A1D1004E8A9D /* Products */;
 			projectDirPath = "";
@@ -521,6 +525,14 @@
 				kind = branch;
 			};
 		};
+		1B6D113D23D9B51C004E8A9D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -533,6 +545,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1B6D113A23D9B416004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */;
 			productName = Nimble;
+		};
+		1B6D113E23D9B51C004E8A9D /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B6D113D23D9B51C004E8A9D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
