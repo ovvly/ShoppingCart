@@ -28,12 +28,9 @@ final class ProductListViewController: UIViewController {
     }
     
     private func setupView() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+        tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.identifier)
         tableView.dataSource = self
-    }
-    
-    private struct Constants {
-        static let cellIdentifier = "ProductCell"
+        tableView.rowHeight = 44
     }
 }
 
@@ -44,10 +41,13 @@ extension ProductListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let product = products[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier) else {
-            fatalError("Failed to dequeue table view cell with identifier: \(Constants.cellIdentifier)")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.identifier) as? ProductCell else {
+            fatalError("Failed to dequeue table view cell with identifier: \(ProductCell.identifier)")
         }
-        cell.textLabel?.text = product
+        
+        cell.productNameLabel.text = product
+        cell.unitLabel.text = "unit"
+        cell.priceLabel.text = "333 $"
         return cell
     }
 }

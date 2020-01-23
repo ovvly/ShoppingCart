@@ -16,6 +16,7 @@
 		1B6D113C23D9B416004E8A9D /* Nimble in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 1B6D113B23D9B416004E8A9D /* Nimble */; };
 		1B6D113F23D9B51C004E8A9D /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 1B6D113E23D9B51C004E8A9D /* SnapshotTesting */; };
 		1BB50A4C23D9F36A005DD651 /* ControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB50A4B23D9F36A005DD651 /* ControllersFactory.swift */; };
+		1BB50A4E23D9F45A005DD651 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB50A4D23D9F45A005DD651 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		1B6D112E23D9A799004E8A9D /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		1B6D113223D9A857004E8A9D /* ProductListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewControllerSpec.swift; sourceTree = "<group>"; };
 		1BB50A4B23D9F36A005DD651 /* ControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllersFactory.swift; sourceTree = "<group>"; };
+		1BB50A4D23D9F45A005DD651 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				1B6D112E23D9A799004E8A9D /* ProductListViewController.swift */,
 				1B6D113223D9A857004E8A9D /* ProductListViewControllerSpec.swift */,
+				1BB50A4D23D9F45A005DD651 /* ProductCell.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B6D112F23D9A799004E8A9D /* ProductListViewController.swift in Sources */,
+				1BB50A4E23D9F45A005DD651 /* ProductCell.swift in Sources */,
 				1BB50A4C23D9F36A005DD651 /* ControllersFactory.swift in Sources */,
 				1B6D10F823D9A1D1004E8A9D /* AppDelegate.swift in Sources */,
 			);
