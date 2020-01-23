@@ -10,9 +10,10 @@
 		1B6D10F823D9A1D1004E8A9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6D10F723D9A1D1004E8A9D /* AppDelegate.swift */; };
 		1B6D10FE23D9A1D2004E8A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B6D10FD23D9A1D2004E8A9D /* Assets.xcassets */; };
 		1B6D110423D9A1D2004E8A9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6D110223D9A1D2004E8A9D /* LaunchScreen.storyboard */; };
-		1B6D111A23D9A3D2004E8A9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6D111923D9A3D2004E8A9D /* ViewController.swift */; };
-		1B6D112923D9A6CB004E8A9D /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 1B6D112823D9A6CB004E8A9D /* Quick */; };
-		1B6D112C23D9A716004E8A9D /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 1B6D112B23D9A716004E8A9D /* Nimble */; };
+		1B6D112923D9A6CB004E8A9D /* Quick in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 1B6D112823D9A6CB004E8A9D /* Quick */; };
+		1B6D112F23D9A799004E8A9D /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6D112E23D9A799004E8A9D /* ProductListViewController.swift */; };
+		1B6D113323D9A857004E8A9D /* ProductListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6D113223D9A857004E8A9D /* ProductListViewControllerSpec.swift */; platformFilter = ios; };
+		1B6D113C23D9B416004E8A9D /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 1B6D113B23D9B416004E8A9D /* Nimble */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +34,8 @@
 		1B6D110523D9A1D2004E8A9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B6D110A23D9A1D2004E8A9D /* ShoppingCartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingCartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B6D111023D9A1D2004E8A9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B6D111923D9A3D2004E8A9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1B6D112E23D9A799004E8A9D /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		1B6D113223D9A857004E8A9D /* ProductListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewControllerSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +51,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B6D112923D9A6CB004E8A9D /* Quick in Frameworks */,
-				1B6D112C23D9A716004E8A9D /* Nimble in Frameworks */,
+				1B6D113C23D9B416004E8A9D /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,11 +80,10 @@
 		1B6D10F623D9A1D1004E8A9D /* ShoppingCart */ = {
 			isa = PBXGroup;
 			children = (
+				1B6D113023D9A7C4004E8A9D /* Classes */,
+				1B6D113123D9A7CF004E8A9D /* Resources */,
 				1B6D10F723D9A1D1004E8A9D /* AppDelegate.swift */,
-				1B6D10FD23D9A1D2004E8A9D /* Assets.xcassets */,
-				1B6D110223D9A1D2004E8A9D /* LaunchScreen.storyboard */,
 				1B6D110523D9A1D2004E8A9D /* Info.plist */,
-				1B6D111923D9A3D2004E8A9D /* ViewController.swift */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";
@@ -100,6 +101,32 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1B6D112D23D9A78A004E8A9D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				1B6D112E23D9A799004E8A9D /* ProductListViewController.swift */,
+				1B6D113223D9A857004E8A9D /* ProductListViewControllerSpec.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		1B6D113023D9A7C4004E8A9D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1B6D112D23D9A78A004E8A9D /* Modules */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		1B6D113123D9A7CF004E8A9D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1B6D110223D9A1D2004E8A9D /* LaunchScreen.storyboard */,
+				1B6D10FD23D9A1D2004E8A9D /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +167,7 @@
 			name = ShoppingCartTests;
 			packageProductDependencies = (
 				1B6D112823D9A6CB004E8A9D /* Quick */,
-				1B6D112B23D9A716004E8A9D /* Nimble */,
+				1B6D113B23D9B416004E8A9D /* Nimble */,
 			);
 			productName = ShoppingCartTests;
 			productReference = 1B6D110A23D9A1D2004E8A9D /* ShoppingCartTests.xctest */;
@@ -161,6 +188,7 @@
 					};
 					1B6D110923D9A1D2004E8A9D = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
 						TestTargetID = 1B6D10F323D9A1D1004E8A9D;
 					};
 				};
@@ -176,7 +204,7 @@
 			mainGroup = 1B6D10EB23D9A1D1004E8A9D;
 			packageReferences = (
 				1B6D112423D9A685004E8A9D /* XCRemoteSwiftPackageReference "Quick" */,
-				1B6D112A23D9A716004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */,
+				1B6D113A23D9B416004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */,
 			);
 			productRefGroup = 1B6D10F523D9A1D1004E8A9D /* Products */;
 			projectDirPath = "";
@@ -212,7 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B6D111A23D9A3D2004E8A9D /* ViewController.swift in Sources */,
+				1B6D112F23D9A799004E8A9D /* ProductListViewController.swift in Sources */,
 				1B6D10F823D9A1D1004E8A9D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B6D113323D9A857004E8A9D /* ProductListViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +432,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ShoppingCartTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -413,6 +443,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = none.ShoppingCartTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoppingCart.app/ShoppingCart";
@@ -424,6 +455,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ShoppingCartTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -481,12 +513,12 @@
 				minimumVersion = 2.2.0;
 			};
 		};
-		1B6D112A23D9A716004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */ = {
+		1B6D113A23D9B416004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:Quick/Nimble.git";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 8.0.5;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -497,9 +529,9 @@
 			package = 1B6D112423D9A685004E8A9D /* XCRemoteSwiftPackageReference "Quick" */;
 			productName = Quick;
 		};
-		1B6D112B23D9A716004E8A9D /* Nimble */ = {
+		1B6D113B23D9B416004E8A9D /* Nimble */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1B6D112A23D9A716004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */;
+			package = 1B6D113A23D9B416004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */;
 			productName = Nimble;
 		};
 /* End XCSwiftPackageProductDependency section */
