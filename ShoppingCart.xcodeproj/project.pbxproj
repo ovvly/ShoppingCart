@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,8 @@
 		1B6D10FE23D9A1D2004E8A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B6D10FD23D9A1D2004E8A9D /* Assets.xcassets */; };
 		1B6D110423D9A1D2004E8A9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6D110223D9A1D2004E8A9D /* LaunchScreen.storyboard */; };
 		1B6D111A23D9A3D2004E8A9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6D111923D9A3D2004E8A9D /* ViewController.swift */; };
+		1B6D112923D9A6CB004E8A9D /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 1B6D112823D9A6CB004E8A9D /* Quick */; };
+		1B6D112C23D9A716004E8A9D /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 1B6D112B23D9A716004E8A9D /* Nimble */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B6D112923D9A6CB004E8A9D /* Quick in Frameworks */,
+				1B6D112C23D9A716004E8A9D /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +62,7 @@
 				1B6D10F623D9A1D1004E8A9D /* ShoppingCart */,
 				1B6D110D23D9A1D2004E8A9D /* ShoppingCartTests */,
 				1B6D10F523D9A1D1004E8A9D /* Products */,
+				1B6D112723D9A6CB004E8A9D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +95,13 @@
 			path = ShoppingCartTests;
 			sourceTree = "<group>";
 		};
+		1B6D112723D9A6CB004E8A9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +118,8 @@
 			dependencies = (
 			);
 			name = ShoppingCart;
+			packageProductDependencies = (
+			);
 			productName = ShoppingCart;
 			productReference = 1B6D10F423D9A1D1004E8A9D /* ShoppingCart.app */;
 			productType = "com.apple.product-type.application";
@@ -124,6 +138,10 @@
 				1B6D110C23D9A1D2004E8A9D /* PBXTargetDependency */,
 			);
 			name = ShoppingCartTests;
+			packageProductDependencies = (
+				1B6D112823D9A6CB004E8A9D /* Quick */,
+				1B6D112B23D9A716004E8A9D /* Nimble */,
+			);
 			productName = ShoppingCartTests;
 			productReference = 1B6D110A23D9A1D2004E8A9D /* ShoppingCartTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -156,6 +174,10 @@
 				Base,
 			);
 			mainGroup = 1B6D10EB23D9A1D1004E8A9D;
+			packageReferences = (
+				1B6D112423D9A685004E8A9D /* XCRemoteSwiftPackageReference "Quick" */,
+				1B6D112A23D9A716004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			productRefGroup = 1B6D10F523D9A1D1004E8A9D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -449,6 +471,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1B6D112423D9A685004E8A9D /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Quick/Quick.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+		1B6D112A23D9A716004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Quick/Nimble.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 8.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1B6D112823D9A6CB004E8A9D /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B6D112423D9A685004E8A9D /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		1B6D112B23D9A716004E8A9D /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B6D112A23D9A716004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1B6D10EC23D9A1D1004E8A9D /* Project object */;
 }
