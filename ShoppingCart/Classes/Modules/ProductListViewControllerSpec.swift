@@ -11,7 +11,7 @@ class ProductListViewControllerSpec: QuickSpec {
             var sut: ProductListViewController!
         
             beforeEach {
-                sut = ProductListViewController()
+                sut = ProductListViewController(products: ["Product 1", "Product 2", "Product 3", "Product 4"])
                 
                 _ = sut.view
             }

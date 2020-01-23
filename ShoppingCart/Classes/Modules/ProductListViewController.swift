@@ -1,9 +1,21 @@
 import Foundation
 import UIKit
 
+typealias Product = String
+
 final class ProductListViewController: UIViewController {
-    private let products = [ "Peas", "Eggs", "Milk", "Beans"]
+    private let products: [Product]
     private let tableView = UITableView()
+    
+    init(products: [Product]) {
+        self.products = products
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Used unimplemented initializer")
+    }
     
     override func loadView() {
         view = tableView
