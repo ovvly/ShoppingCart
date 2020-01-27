@@ -46,11 +46,7 @@ final class ProductCell: UITableViewCell {
         return label
     }()
 
-    var amount: Int = 0 {
-        didSet {
-            amountLabel.text = String(amount)
-        }
-    }
+    private var viewModel: ProductCellViewModel = EmptyProductCellViewModel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -62,7 +58,20 @@ final class ProductCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    func bind(to viewModel: ProductCellViewModel) {
+        self.viewModel = viewModel
+        self.amountLabel.text = viewModel.initialAmount
+
+        self.viewModel.amountChanged = { [weak self] amount in
+            self?.amountLabel.text = String(amount)
+        }
+    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        viewModel = EmptyProductCellViewModel()
+    }
     private func setupCell() {
         addSubviews()
         setupActions()
@@ -85,13 +94,12 @@ final class ProductCell: UITableViewCell {
 
     @objc
     private func increaseButtonTapped() {
-        amount = amount + 1
+        viewModel.amountIncreased()
     }
 
     @objc
     private func decreaseButtonTapped() {
-        guard amount > 0 else { return }
-        amount = amount - 1
+        viewModel.amountDecreased()
     }
 
     private func setupCustomConstraints() {

@@ -43,11 +43,12 @@ extension ProductListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.identifier) as? ProductCell else {
             fatalError("Failed to dequeue table view cell with identifier: \(ProductCell.identifier)")
         }
-        
+
+        let productCellViewModel = DefaultProductCellViewModel()
+        cell.bind(to: productCellViewModel)
         cell.productNameLabel.text = product.name
         cell.unitLabel.text = product.unit
         cell.priceLabel.text = product.price
-        cell.amountLabel.text = "0"
         return cell
     }
 }

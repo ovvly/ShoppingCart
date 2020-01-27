@@ -6,26 +6,24 @@ import Nimble
 
 class ProductCellSpec: QuickSpec {
     override func spec() {
-        describe("ProductCell") { 
+        describe("ProductCell") {
+            var viewModelSpy: ProductCellViewModelSpy!
             var sut: ProductCell!
 
             beforeEach {
+                viewModelSpy = ProductCellViewModelSpy()
                 sut = ProductCell(style: .default, reuseIdentifier: nil)
+
+                sut.bind(to: viewModelSpy)
             }
 
-            describe("init") {
-                it("should have amount equal 0") {
-                    expect(sut.amountLabel.text) == "0"
-                }
-            }
-            
             context("when tapping increase button") {
                 beforeEach {
                     sut.increaseButton.simulateTap()
                 }
                 
-                it("should increase amount") {
-                    expect(sut.amountLabel.text) == "1"
+                it("should inform view model") {
+                    expect(viewModelSpy.increaseCalled) == 1
                 }
             }
 
@@ -35,64 +33,45 @@ class ProductCellSpec: QuickSpec {
                     sut.increaseButton.simulateTap()
                 }
 
-                it("should increase amount twice") {
-                    expect(sut.amountLabel.text) == "2"
+                it("should inform view model twice") {
+                    expect(viewModelSpy.increaseCalled) == 2
                 }
             }
 
             context("when tapping decrease button") {
-                context("when amount is above 0") {
-                    beforeEach {
-                        sut.amount = 1
-
-                        sut.decreaseButton.simulateTap()
-                    }
-
-                    it("should decrease amount") {
-                        expect(sut.amountLabel.text) == "0"
-                    }
+                beforeEach {
+                    sut.decreaseButton.simulateTap()
                 }
 
-                context("when amount is 0") {
-                    beforeEach {
-                        sut.amount = 0
-
-                        sut.decreaseButton.simulateTap()
-                    }
-
-                    it("should not decrease amount") {
-                        expect(sut.amountLabel.text) == "0"
-                    }
+                it("should inform view model") {
+                    expect(viewModelSpy.decreaseCalled) == 1
                 }
             }
 
             context("when tapping decrease button twice") {
-                context("when amount is 1") {
-                    beforeEach {
-                        sut.amount = 1
-
-                        sut.decreaseButton.simulateTap()
-                        sut.decreaseButton.simulateTap()
-                    }
-
-                    it("should decrease amount once") {
-                        expect(sut.amountLabel.text) == "0"
-                    }
+                beforeEach {
+                    sut.decreaseButton.simulateTap()
+                    sut.decreaseButton.simulateTap()
                 }
 
-                context("when amount is above 1") {
-                    beforeEach {
-                        sut.amount = 2
-
-                        sut.decreaseButton.simulateTap()
-                        sut.decreaseButton.simulateTap()
-                    }
-
-                    it("should decrease amount twice") {
-                        expect(sut.amountLabel.text) == "0"
-                    }
+                it("should inform view model twice") {
+                    expect(viewModelSpy.decreaseCalled) == 2
                 }
             }
         }
+    }
+}
+
+private final class ProductCellViewModelSpy: ProductCellViewModel {
+    var initialAmount: String = ""
+    var amountChanged: ((String) -> ())?
+    var increaseCalled = 0
+    var decreaseCalled = 0
+
+    func amountIncreased() {
+        increaseCalled += 1
+    }
+    func amountDecreased() {
+        decreaseCalled += 1
     }
 }
