@@ -42,9 +42,16 @@ final class ProductCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 1
         label.textAlignment = .center
+        label.text = "0"
         return label
     }()
-    
+
+    var amount: Int = 0 {
+        didSet {
+            amountLabel.text = String(amount)
+        }
+    }
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -58,6 +65,7 @@ final class ProductCell: UITableViewCell {
     
     private func setupCell() {
         addSubviews()
+        setupActions()
         setupCustomConstraints()
     }
     
@@ -68,6 +76,22 @@ final class ProductCell: UITableViewCell {
         contentView.addSubview(increaseButton)
         contentView.addSubview(decreaseButton)
         contentView.addSubview(amountLabel)
+    }
+
+    private func setupActions() {
+        increaseButton.addTarget(self, action: #selector(increaseButtonTapped), for: .primaryActionTriggered)
+        decreaseButton.addTarget(self, action: #selector(decreaseButtonTapped), for: .primaryActionTriggered)
+    }
+
+    @objc
+    private func increaseButtonTapped() {
+        amount = amount + 1
+    }
+
+    @objc
+    private func decreaseButtonTapped() {
+        guard amount > 0 else { return }
+        amount = amount - 1
     }
 
     private func setupCustomConstraints() {
