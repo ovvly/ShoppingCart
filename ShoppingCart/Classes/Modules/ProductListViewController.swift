@@ -28,8 +28,8 @@ final class ProductListViewController: UIViewController {
     private func setupView() {
         productListView.tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.identifier)
         productListView.tableView.dataSource = self
-        productListView.tableView.rowHeight = 44
         productListView.tableView.tableFooterView = UIView()
+        productListView.tableView.rowHeight = 100
     }
 }
 
@@ -45,8 +45,9 @@ extension ProductListViewController: UITableViewDataSource {
         }
         
         cell.productNameLabel.text = product.name
-        cell.unitLabel.text = "per \(product.unit)"
+        cell.unitLabel.text = product.unit
         cell.priceLabel.text = product.price
+        cell.amountLabel.text = "0"
         return cell
     }
 }
