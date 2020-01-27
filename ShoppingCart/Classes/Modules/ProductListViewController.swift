@@ -1,8 +1,6 @@
 import Foundation
 import UIKit
 
-typealias Product = String
-
 final class ProductListViewController: UIViewController {
     private let products: [Product]
     private let tableView = UITableView()
@@ -45,9 +43,9 @@ extension ProductListViewController: UITableViewDataSource {
             fatalError("Failed to dequeue table view cell with identifier: \(ProductCell.identifier)")
         }
         
-        cell.productNameLabel.text = product
-        cell.unitLabel.text = "unit"
-        cell.priceLabel.text = "333 $"
+        cell.productNameLabel.text = product.name
+        cell.unitLabel.text = "per \(product.unit)"
+        cell.priceLabel.text = product.price
         return cell
     }
 }
