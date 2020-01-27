@@ -10,13 +10,13 @@
 		1B6D10F823D9A1D1004E8A9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6D10F723D9A1D1004E8A9D /* AppDelegate.swift */; };
 		1B6D10FE23D9A1D2004E8A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B6D10FD23D9A1D2004E8A9D /* Assets.xcassets */; };
 		1B6D110423D9A1D2004E8A9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6D110223D9A1D2004E8A9D /* LaunchScreen.storyboard */; };
-		1B6D112923D9A6CB004E8A9D /* Quick in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 1B6D112823D9A6CB004E8A9D /* Quick */; };
 		1B6D112F23D9A799004E8A9D /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6D112E23D9A799004E8A9D /* ProductListViewController.swift */; };
 		1B6D113323D9A857004E8A9D /* ProductListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6D113223D9A857004E8A9D /* ProductListViewControllerSpec.swift */; platformFilter = ios; };
-		1B6D113C23D9B416004E8A9D /* Nimble in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 1B6D113B23D9B416004E8A9D /* Nimble */; };
-		1B6D113F23D9B51C004E8A9D /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 1B6D113E23D9B51C004E8A9D /* SnapshotTesting */; };
 		1BB50A4C23D9F36A005DD651 /* ControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB50A4B23D9F36A005DD651 /* ControllersFactory.swift */; };
 		1BB50A4E23D9F45A005DD651 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB50A4D23D9F45A005DD651 /* ProductCell.swift */; };
+		2C0E50DE23DF026A002B1BD2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E50DB23DF0267002B1BD2 /* Quick.framework */; };
+		2C0E50DF23DF026A002B1BD2 /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E50DC23DF026A002B1BD2 /* SnapshotTesting.framework */; };
+		2C0E50E023DF026A002B1BD2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E50DD23DF026A002B1BD2 /* Nimble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +41,9 @@
 		1B6D113223D9A857004E8A9D /* ProductListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewControllerSpec.swift; sourceTree = "<group>"; };
 		1BB50A4B23D9F36A005DD651 /* ControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllersFactory.swift; sourceTree = "<group>"; };
 		1BB50A4D23D9F45A005DD651 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		2C0E50DB23DF0267002B1BD2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		2C0E50DC23DF026A002B1BD2 /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/iOS/SnapshotTesting.framework; sourceTree = "<group>"; };
+		2C0E50DD23DF026A002B1BD2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B6D113F23D9B51C004E8A9D /* SnapshotTesting in Frameworks */,
-				1B6D112923D9A6CB004E8A9D /* Quick in Frameworks */,
-				1B6D113C23D9B416004E8A9D /* Nimble in Frameworks */,
+				2C0E50DE23DF026A002B1BD2 /* Quick.framework in Frameworks */,
+				2C0E50DF23DF026A002B1BD2 /* SnapshotTesting.framework in Frameworks */,
+				2C0E50E023DF026A002B1BD2 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +108,9 @@
 		1B6D112723D9A6CB004E8A9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C0E50DD23DF026A002B1BD2 /* Nimble.framework */,
+				2C0E50DB23DF0267002B1BD2 /* Quick.framework */,
+				2C0E50DC23DF026A002B1BD2 /* SnapshotTesting.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,6 +128,7 @@
 		1B6D113023D9A7C4004E8A9D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2C0E50DA23DF0004002B1BD2 /* Model */,
 				1BB50A4A23D9F34D005DD651 /* Helpers */,
 				1B6D112D23D9A78A004E8A9D /* Modules */,
 			);
@@ -143,6 +150,13 @@
 				1BB50A4B23D9F36A005DD651 /* ControllersFactory.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2C0E50DA23DF0004002B1BD2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +188,7 @@
 				1B6D110623D9A1D2004E8A9D /* Sources */,
 				1B6D110723D9A1D2004E8A9D /* Frameworks */,
 				1B6D110823D9A1D2004E8A9D /* Resources */,
+				2CC8D6B823DF037700BD3F62 /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -182,9 +197,6 @@
 			);
 			name = ShoppingCartTests;
 			packageProductDependencies = (
-				1B6D112823D9A6CB004E8A9D /* Quick */,
-				1B6D113B23D9B416004E8A9D /* Nimble */,
-				1B6D113E23D9B51C004E8A9D /* SnapshotTesting */,
 			);
 			productName = ShoppingCartTests;
 			productReference = 1B6D110A23D9A1D2004E8A9D /* ShoppingCartTests.xctest */;
@@ -220,9 +232,6 @@
 			);
 			mainGroup = 1B6D10EB23D9A1D1004E8A9D;
 			packageReferences = (
-				1B6D112423D9A685004E8A9D /* XCRemoteSwiftPackageReference "Quick" */,
-				1B6D113A23D9B416004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */,
-				1B6D113D23D9B51C004E8A9D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 1B6D10F523D9A1D1004E8A9D /* Products */;
 			projectDirPath = "";
@@ -252,6 +261,33 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CC8D6B823DF037700BD3F62 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapshotTesting.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Quick.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Nimble.framework\n",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapshotTesting.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1B6D10F023D9A1D1004E8A9D /* Sources */ = {
@@ -454,6 +490,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ShoppingCartTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -477,6 +517,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ShoppingCartTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -523,51 +567,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		1B6D112423D9A685004E8A9D /* XCRemoteSwiftPackageReference "Quick" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Quick/Quick.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 2.2.0;
-			};
-		};
-		1B6D113A23D9B416004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Quick/Nimble.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		1B6D113D23D9B51C004E8A9D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:pointfreeco/swift-snapshot-testing.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.7.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1B6D112823D9A6CB004E8A9D /* Quick */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1B6D112423D9A685004E8A9D /* XCRemoteSwiftPackageReference "Quick" */;
-			productName = Quick;
-		};
-		1B6D113B23D9B416004E8A9D /* Nimble */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1B6D113A23D9B416004E8A9D /* XCRemoteSwiftPackageReference "Nimble" */;
-			productName = Nimble;
-		};
-		1B6D113E23D9B51C004E8A9D /* SnapshotTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1B6D113D23D9B51C004E8A9D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
-			productName = SnapshotTesting;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1B6D10EC23D9A1D1004E8A9D /* Project object */;
 }
