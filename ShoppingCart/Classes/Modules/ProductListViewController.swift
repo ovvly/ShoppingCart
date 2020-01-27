@@ -3,7 +3,7 @@ import UIKit
 
 final class ProductListViewController: UIViewController {
     private let products: [Product]
-    private let tableView = UITableView()
+    private let productListView = ProductListView()
     
     init(products: [Product]) {
         self.products = products
@@ -16,7 +16,7 @@ final class ProductListViewController: UIViewController {
     }
     
     override func loadView() {
-        view = tableView
+        view = productListView
     }
     
     override func viewDidLoad() {
@@ -26,9 +26,10 @@ final class ProductListViewController: UIViewController {
     }
     
     private func setupView() {
-        tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.identifier)
-        tableView.dataSource = self
-        tableView.rowHeight = 44
+        productListView.tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.identifier)
+        productListView.tableView.dataSource = self
+        productListView.tableView.rowHeight = 44
+        productListView.tableView.tableFooterView = UIView()
     }
 }
 
