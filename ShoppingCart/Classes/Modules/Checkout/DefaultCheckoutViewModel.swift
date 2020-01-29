@@ -1,21 +1,21 @@
 import Foundation
 
-typealias Money = Decimal
-
-extension Money {
-    func asString() -> String {
-        return "\(self)"
-    }
-}
-
 protocol CheckoutViewModel {
     var priceString: String { get }
+    func update(currency: String, rate: Decimal)
 }
 
 final class DefaultCheckoutViewModel: CheckoutViewModel {
-    let priceString: String
+    var priceString: String
+
+    private let price: Money
 
     init(price: Money) {
-        self.priceString = price.asString()
+        self.price = price
+        self.priceString = "\(price.asString()) USD"
+    }
+
+    func update(currency: String, rate: Decimal) {
+       priceString = "\(price * rate) \(currency)"
     }
 }
