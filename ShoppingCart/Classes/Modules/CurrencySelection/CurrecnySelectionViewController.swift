@@ -40,13 +40,13 @@ final class CurrencySelectionViewController: UIViewController {
     }
 
     private func fetchCurrencies() {
-        viewModel.fetchCurrencies(completion: { result in
+        viewModel.fetchCurrencies(completion: { [weak self] result in
             switch result {
                 case .success:
-                    tableView.reloadData()
+                    self?.tableView.reloadData()
                 case .failure:
                     //TODO: add error handling
-                    tableView.reloadData()
+                    self?.tableView.reloadData()
             }
         })
     }

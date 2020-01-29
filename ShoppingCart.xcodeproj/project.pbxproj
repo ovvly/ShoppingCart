@@ -24,12 +24,14 @@
 		AA24B415B1D2061634D6A62C /* CurrecnySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24BEB3B7082403C2B0B2E5 /* CurrecnySelectionViewController.swift */; };
 		AA24B46E3E4D7ED2655ED9B5 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24B1E90F2B57A8963C6BC2 /* ProductCell.swift */; };
 		AA24B590673078E5A905B39E /* Product+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24B9C9AE7229F9E13831BE /* Product+Fixtures.swift */; };
+		AA24B6510642BC22C83E0D55 /* CurrenciesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24BA4D9D9D959580BCADFE /* CurrenciesService.swift */; };
 		AA24B6BBA603416E779322F7 /* CheckoutViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24BD689171BB08EE7C4594 /* CheckoutViewControllerSpec.swift */; };
 		AA24B719444C782766021B72 /* ProductListViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24BC88C0CE4ABCD03D37FB /* ProductListViewModelSpec.swift */; };
 		AA24B8426B54280FD15EF64D /* DefaultCheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24B6473B42CD5925DDD1B7 /* DefaultCheckoutViewModel.swift */; };
 		AA24B89388664D025D094194 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24B071EC81B97F12CE1745 /* ProductListView.swift */; };
 		AA24B8C0D6D44E5FC06B1DB2 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24B98DA561CAD498F78898 /* ProductListViewController.swift */; };
 		AA24B8E8FBEDE9310BE15120 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24BD5E3EA515017A48C08D /* ProductViewModel.swift */; };
+		AA24BB32ABDD653005690DE3 /* CurrencyPairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24B1E018D3731CB7C8A098 /* CurrencyPairs.swift */; };
 		AA24BC0824C5B890C7CE56AF /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24B3953B4ABE3C36FA7D1B /* FlowController.swift */; };
 		AA24BC2C558472D1F378C672 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24B45DB4E69EE4E240BDFB /* ProductListViewModel.swift */; };
 		AA24BCA4362E5C49B12951FD /* ProductCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24BC13A962CE2158105205 /* ProductCellSpec.swift */; };
@@ -63,6 +65,7 @@
 		AA24B064982B42C2CA1B24A1 /* CheckoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		AA24B071EC81B97F12CE1745 /* ProductListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		AA24B1563748BDA940FCD6E2 /* UIButton+Specs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Specs.swift"; sourceTree = "<group>"; };
+		AA24B1E018D3731CB7C8A098 /* CurrencyPairs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyPairs.swift; sourceTree = "<group>"; };
 		AA24B1E90F2B57A8963C6BC2 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		AA24B3953B4ABE3C36FA7D1B /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		AA24B3E7D594678477F3CE55 /* ProductListViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewControllerSpec.swift; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 		AA24B872C2E6319647DB2BCD /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		AA24B98DA561CAD498F78898 /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		AA24B9C9AE7229F9E13831BE /* Product+Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Product+Fixtures.swift"; sourceTree = "<group>"; };
+		AA24BA4D9D9D959580BCADFE /* CurrenciesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesService.swift; sourceTree = "<group>"; };
 		AA24BB3D40ED29B332E51300 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		AA24BC13A962CE2158105205 /* ProductCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCellSpec.swift; sourceTree = "<group>"; };
 		AA24BC88C0CE4ABCD03D37FB /* ProductListViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewModelSpec.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 				2C0E50DA23DF0004002B1BD2 /* Model */,
 				1BB50A4A23D9F34D005DD651 /* Helpers */,
 				1B6D112D23D9A78A004E8A9D /* Modules */,
+				AA24B7EF5F17992F374A42AA /* Networking */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -244,6 +249,15 @@
 				AA24BD689171BB08EE7C4594 /* CheckoutViewControllerSpec.swift */,
 			);
 			path = Checkout;
+			sourceTree = "<group>";
+		};
+		AA24B7EF5F17992F374A42AA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				AA24BA4D9D9D959580BCADFE /* CurrenciesService.swift */,
+				AA24B1E018D3731CB7C8A098 /* CurrencyPairs.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		AA24BBA321AD9932965B91BC /* CurrencySelection */ = {
@@ -415,6 +429,8 @@
 				AA24B415B1D2061634D6A62C /* CurrecnySelectionViewController.swift in Sources */,
 				AA24BF18F7F989B73514C4D6 /* CurrencySelectionViewModel.swift in Sources */,
 				AA24BCB12E062482F3AB633E /* CurrencyCell.swift in Sources */,
+				AA24B6510642BC22C83E0D55 /* CurrenciesService.swift in Sources */,
+				AA24BB32ABDD653005690DE3 /* CurrencyPairs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

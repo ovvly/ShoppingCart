@@ -25,5 +25,7 @@ class CheckoutViewControllerSpec: QuickSpec {
 }
 
 private class CheckoutViewModelStub: CheckoutViewModel {
+    func update(currency: String, rate: Decimal) { }
+
     let priceString = "$ 42,42"
 }

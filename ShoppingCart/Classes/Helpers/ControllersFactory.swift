@@ -18,9 +18,10 @@ final class ControllersFactory {
         let viewController = CheckoutViewController(viewModel: viewModel)
         return viewController
     }
-    
+
     func createCurrencySelectionViewController() -> CurrencySelectionViewController {
-        let viewModel = CurrencySelectionViewModel()
+        let currenciesService = CurrenciesNetworkService()
+        let viewModel = CurrencySelectionViewModel(currenciesService: currenciesService)
         let viewController = CurrencySelectionViewController(viewModel: viewModel)
         return viewController
     }
