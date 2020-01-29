@@ -7,7 +7,9 @@ final class ControllersFactory {
                         Product(name: "Eggs", unit: "dozen", price: "$ 2,10"),  
                         Product(name: "Milk", unit: "bottle", price: "$ 1,30"),
                         Product(name: "Beans", unit: "can", price: "$ 0,73")]
-        let viewController = ProductListViewController(products: products)
+        let viewModel = DefaultProductListViewModel(products: products)
+
+        let viewController = ProductListViewController(viewModel: viewModel)
         return viewController
     }
 }

@@ -2,11 +2,11 @@ import Foundation
 import UIKit
 
 final class ProductListViewController: UIViewController {
-    private let products: [Product]
+    private let viewModel: ProductListViewModel
     private let productListView = ProductListView()
-    
-    init(products: [Product]) {
-        self.products = products
+
+    init(viewModel: ProductListViewModel) {
+        self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -35,20 +35,36 @@ final class ProductListViewController: UIViewController {
 
 extension ProductListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        return viewModel.productsCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let product = products[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.identifier) as? ProductCell else {
             fatalError("Failed to dequeue table view cell with identifier: \(ProductCell.identifier)")
         }
 
-        let productCellViewModel = DefaultProductCellViewModel()
-        cell.bind(to: productCellViewModel)
-        cell.productNameLabel.text = product.name
-        cell.unitLabel.text = product.unit
-        cell.priceLabel.text = product.price
+        let productViewModel = viewModel.viewModel(for: indexPath.row)
+        cell.populate(with: productViewModel)
+
         return cell
+    }
+}
+
+private extension ProductCell {
+    func populate(with viewModel: ProductViewModel) {
+        productNameLabel.text = viewModel.name
+        unitLabel.text = viewModel.unit
+        priceLabel.text = viewModel.price
+        amountLabel.text = viewModel.amount
+
+        increaseAction = { [unowned self] in
+            viewModel.amountIncreased()
+            self.amountLabel.text = viewModel.amount
+        }
+
+        decreaseAction = { [unowned self] in
+            viewModel.amountDecreased()
+            self.amountLabel.text = viewModel.amount
+        }
     }
 }

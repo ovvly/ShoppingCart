@@ -46,7 +46,8 @@ final class ProductCell: UITableViewCell {
         return label
     }()
 
-    private var viewModel: ProductCellViewModel = EmptyProductCellViewModel()
+    var increaseAction: (()-> ())?
+    var decreaseAction: (()-> ())?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -59,19 +60,12 @@ final class ProductCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func bind(to viewModel: ProductCellViewModel) {
-        self.viewModel = viewModel
-        self.amountLabel.text = viewModel.initialAmount
-
-        self.viewModel.amountChanged = { [weak self] amount in
-            self?.amountLabel.text = String(amount)
-        }
-    }
     override func prepareForReuse() {
         super.prepareForReuse()
-
-        viewModel = EmptyProductCellViewModel()
+        increaseAction = nil
+        decreaseAction = nil
     }
+
     private func setupCell() {
         addSubviews()
         setupActions()
@@ -94,12 +88,12 @@ final class ProductCell: UITableViewCell {
 
     @objc
     private func increaseButtonTapped() {
-        viewModel.amountIncreased()
+        increaseAction?()
     }
 
     @objc
     private func decreaseButtonTapped() {
-        viewModel.amountDecreased()
+        decreaseAction?()
     }
 
     private func setupCustomConstraints() {

@@ -7,71 +7,66 @@ import Nimble
 class ProductCellSpec: QuickSpec {
     override func spec() {
         describe("ProductCell") {
-            var viewModelSpy: ProductCellViewModelSpy!
             var sut: ProductCell!
 
             beforeEach {
-                viewModelSpy = ProductCellViewModelSpy()
                 sut = ProductCell(style: .default, reuseIdentifier: nil)
-
-                sut.bind(to: viewModelSpy)
             }
 
-            context("when tapping increase button") {
+            describe("prepare for reuse") {
                 beforeEach {
-                    sut.increaseButton.simulateTap()
-                }
-                
-                it("should inform view model") {
-                    expect(viewModelSpy.increaseCalled) == 1
-                }
-            }
+                    sut.increaseAction = { }
+                    sut.decreaseAction = { }
 
-            context("when tapping increase button twice") {
-                beforeEach {
-                    sut.increaseButton.simulateTap()
-                    sut.increaseButton.simulateTap()
+                    sut.prepareForReuse()
                 }
 
-                it("should inform view model twice") {
-                    expect(viewModelSpy.increaseCalled) == 2
+                it("should remove increase action") {
+                    expect(sut.increaseAction).to(beNil())
+                }
+
+                it("should remove decrease action") {
+                    expect(sut.decreaseAction).to(beNil())
                 }
             }
 
-            context("when tapping decrease button") {
+            describe("buttons") {
+                var increaseActionCalls: Int!
+                var decreaseActionCalls: Int!
+
                 beforeEach {
-                    sut.decreaseButton.simulateTap()
+                    increaseActionCalls = 0
+                    decreaseActionCalls = 0
+
+                    sut.increaseAction = {
+                        increaseActionCalls += 1
+                    }
+
+                    sut.decreaseAction = {
+                        decreaseActionCalls += 1
+                    }
                 }
 
-                it("should inform view model") {
-                    expect(viewModelSpy.decreaseCalled) == 1
-                }
-            }
+                context("when increase button is tapped") {
+                    beforeEach {
+                        sut.increaseButton.simulateTap()
+                    }
 
-            context("when tapping decrease button twice") {
-                beforeEach {
-                    sut.decreaseButton.simulateTap()
-                    sut.decreaseButton.simulateTap()
+                    it("should call increase action") {
+                        expect(increaseActionCalls) == 1
+                    }
                 }
 
-                it("should inform view model twice") {
-                    expect(viewModelSpy.decreaseCalled) == 2
+                context("when decrease button is tapped") {
+                    beforeEach {
+                        sut.decreaseButton.simulateTap()
+                    }
+
+                    it("should call decrease action") {
+                        expect(decreaseActionCalls) == 1
+                    }
                 }
             }
         }
-    }
-}
-
-private final class ProductCellViewModelSpy: ProductCellViewModel {
-    var initialAmount: String = ""
-    var amountChanged: ((String) -> ())?
-    var increaseCalled = 0
-    var decreaseCalled = 0
-
-    func amountIncreased() {
-        increaseCalled += 1
-    }
-    func amountDecreased() {
-        decreaseCalled += 1
     }
 }

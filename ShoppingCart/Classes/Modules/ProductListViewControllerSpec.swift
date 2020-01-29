@@ -8,11 +8,13 @@ import SnapshotTesting
 class ProductListViewControllerSpec: QuickSpec {
     override func spec() {
         describe("ProductListViewController") {
+            var viewModelStub: ProductListViewModelStub!
             var sut: ProductListViewController!
-        
+
             beforeEach {
-                sut = ProductListViewController(products: Product.fixtures)
-                
+                viewModelStub = ProductListViewModelStub()
+                sut = ProductListViewController(viewModel: viewModelStub)
+
                 _ = sut.view
             }
             
@@ -20,5 +22,16 @@ class ProductListViewControllerSpec: QuickSpec {
                 assertSnapshot(matching: sut, as: .image(on: .iPhone8))
             }
         }
+    }
+}
+
+private final class ProductListViewModelStub: ProductListViewModel {
+    private(set) var productsCount: Int = 4
+    func viewModel(for index: Int) -> ProductViewModel {
+        let productViewModelSpy =  ProductViewModelSpy()
+        productViewModelSpy.name = "Fixture \(index)" 
+        productViewModelSpy.unit = "unit \(index)" 
+        productViewModelSpy.price = "price \(index)"
+        return productViewModelSpy
     }
 }

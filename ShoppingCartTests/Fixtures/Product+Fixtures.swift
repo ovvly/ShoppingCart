@@ -9,4 +9,8 @@ extension Product {
                 Product(name: "Fixture 4", unit: "unit 4", price: "price 4"),
                 Product(name: "Fixture 5", unit: "unit 5", price: "price 5")]
     }
+
+    static var fixture: Product {
+        return Product(name: "Fixture 1", unit: "unit 1", price: "price 1")
+    }
 }
