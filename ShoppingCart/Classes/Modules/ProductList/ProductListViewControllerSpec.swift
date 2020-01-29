@@ -25,12 +25,14 @@ class ProductListViewControllerSpec: QuickSpec {
 }
 
 private final class ProductListViewModelStub: ProductListViewModel {
-    private(set) var productsCount: Int = 4
+    var totalPrice: Money = 42.0
+    var productsCount: Int = 4
+
     func viewModel(for index: Int) -> ProductViewModel {
         let productViewModelSpy =  ProductViewModelSpy()
         productViewModelSpy.name = "Fixture \(index)" 
         productViewModelSpy.unit = "unit \(index)" 
-        productViewModelSpy.price = "price \(index)"
+        productViewModelSpy.priceString = "price \(index)"
         return productViewModelSpy
     }
 }

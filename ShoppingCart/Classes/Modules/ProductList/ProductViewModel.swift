@@ -3,8 +3,9 @@ import Foundation
 protocol ProductViewModel {
     var name: String { get }
     var unit: String { get }
-    var price: String { get }
-    var amount: String { get }
+    var priceString: String { get }
+    var amountString: String { get }
+    var totalPrice: Money { get }
     func amountIncreased()
     func amountDecreased()
 }
@@ -12,13 +13,19 @@ protocol ProductViewModel {
 final class DefaultProductViewModel: ProductViewModel {
     let name: String
     let unit: String
-    let price: String
+    var priceString: String {
+       return price.asString()
+    }
+    var totalPrice: Money {
+        return price * Decimal(numberOfUnits)
+    }
 
-    var amount: String {
+    var amountString: String {
         return String(numberOfUnits)
     }
 
     private var numberOfUnits: Int
+    private let price: Money
 
     init(product: Product, amount: Int = 0) {
         self.name = product.name

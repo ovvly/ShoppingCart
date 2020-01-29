@@ -42,7 +42,7 @@ final class ProductListViewController: UIViewController {
 
     @objc
     private func checkoutButtonTapped() {
-        delegate?.userSelectsProducts(with: 42.0)
+        delegate?.userSelectsProducts(with: viewModel.totalPrice)
     }
 }
 
@@ -67,17 +67,17 @@ private extension ProductCell {
     func populate(with viewModel: ProductViewModel) {
         productNameLabel.text = viewModel.name
         unitLabel.text = viewModel.unit
-        priceLabel.text = viewModel.price
-        amountLabel.text = viewModel.amount
+        priceLabel.text = viewModel.priceString
+        amountLabel.text = viewModel.amountString
 
         increaseAction = { [unowned self] in
             viewModel.amountIncreased()
-            self.amountLabel.text = viewModel.amount
+            self.amountLabel.text = viewModel.amountString
         }
 
         decreaseAction = { [unowned self] in
             viewModel.amountDecreased()
-            self.amountLabel.text = viewModel.amount
+            self.amountLabel.text = viewModel.amountString
         }
     }
 }

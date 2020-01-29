@@ -16,7 +16,7 @@ class ProductViewModelSpec: QuickSpec {
                     }
 
                     it("should return correct amount") {
-                        expect(sut.amount) == "42"
+                        expect(sut.amountString) == "42"
                     }
                 }
 
@@ -28,7 +28,7 @@ class ProductViewModelSpec: QuickSpec {
                     }
 
                     it("should call amount changed with increased amount") {
-                        expect(sut.amount) == "1"
+                        expect(sut.amountString) == "1"
                     }
                 }
 
@@ -41,7 +41,7 @@ class ProductViewModelSpec: QuickSpec {
                         }
 
                         it("should call amount changed with decreased amount") {
-                            expect(sut.amount) == "0"
+                            expect(sut.amountString) == "0"
                         }
                     }
 
@@ -53,8 +53,18 @@ class ProductViewModelSpec: QuickSpec {
                         }
 
                         it("should not change amount") {
-                            expect(sut.amount) == "0"
+                            expect(sut.amountString) == "0"
                         }
+                    }
+                }
+
+                describe("total price") {
+                    beforeEach {
+                        sut = DefaultProductViewModel(product: Product.fixture, amount: 2)
+                    }
+                    
+                    it("should have correct total price") {
+                        expect(sut.totalPrice) == 84.0
                     }
                 }
             }
