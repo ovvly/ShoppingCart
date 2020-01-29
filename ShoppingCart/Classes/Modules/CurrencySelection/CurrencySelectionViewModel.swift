@@ -2,10 +2,6 @@ import Foundation
 
 typealias Currency = String
 
-enum NetworkError: Error {
-    case genericError
-}
-
 final class CurrencySelectionViewModel {
     var numberOfCurrencies: Int {
         return currencies.count

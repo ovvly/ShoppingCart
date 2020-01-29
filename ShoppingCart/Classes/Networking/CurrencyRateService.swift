@@ -5,26 +5,25 @@ protocol CurrencyRateService {
 }
 
 final class CurrencyRateNetworkService: CurrencyRateService {
-    private let session: URLSession
+    private let session: NetworkSession
+    private let jsonDecoder: JSONDecoding
 
-    init() {
-        session = URLSession(configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue.main)
+    init(session: NetworkSession = URLSession(configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue.main),
+         jsonDecoder: JSONDecoding = JSONDecoder()) {
+        self.session = session
+        self.jsonDecoder = jsonDecoder
     }
 
     func fetchRate(for pair: String, completion: @escaping (Result<CurrencyRate, Error>) -> ()) {
         let url = buildUrl(for: pair)
-        let task = session.dataTask(with: url) { data, response, error in
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
             //TODO: make better error handling
-            guard let data = data, let pairedRate = try? JSONDecoder().decode(PairedCurrencyRate.self, from: data) else {
+            guard let data = data, let pairedRate = try? self?.jsonDecoder.decode(PairedCurrencyRate.self, from: data) else {
                 let error = error ?? NetworkError.genericError
                 completion(.failure(error))
                 return
             }
-            guard let rate = pairedRate.value else {
-                completion(.failure(NetworkError.genericError))
-                return
-            }
-            completion(.success(rate))
+            completion(.success(pairedRate.value))
         }
         task.resume()
     }
