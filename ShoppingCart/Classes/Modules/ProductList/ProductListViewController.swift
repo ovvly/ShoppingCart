@@ -1,7 +1,13 @@
 import Foundation
 import UIKit
 
+protocol ProductListViewControllerDelegate: class {
+    func userSelectsProducts(with price: Money)
+}
+
 final class ProductListViewController: UIViewController {
+    weak var delegate: ProductListViewControllerDelegate?
+
     private let viewModel: ProductListViewModel
     private let productListView = ProductListView()
 
@@ -30,6 +36,13 @@ final class ProductListViewController: UIViewController {
         productListView.tableView.dataSource = self
         productListView.tableView.tableFooterView = UIView()
         productListView.tableView.rowHeight = 100
+
+        productListView.checkoutButton.addTarget(self, action: #selector(checkoutButtonTapped), for: .primaryActionTriggered)
+    }
+
+    @objc
+    private func checkoutButtonTapped() {
+        delegate?.userSelectsProducts(with: 42.0)
     }
 }
 

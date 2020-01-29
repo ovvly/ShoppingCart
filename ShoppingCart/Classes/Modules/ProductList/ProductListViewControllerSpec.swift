@@ -14,7 +14,6 @@ class ProductListViewControllerSpec: QuickSpec {
             beforeEach {
                 viewModelStub = ProductListViewModelStub()
                 sut = ProductListViewController(viewModel: viewModelStub)
-
                 _ = sut.view
             }
             

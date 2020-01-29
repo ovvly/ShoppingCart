@@ -12,4 +12,10 @@ final class ControllersFactory {
         let viewController = ProductListViewController(viewModel: viewModel)
         return viewController
     }
+
+    func createCheckoutViewController(price: Money) -> CheckoutViewController {
+        let viewModel = DefaultCheckoutViewModel(price: price)
+        let viewController = CheckoutViewController(viewModel: viewModel)
+        return viewController
+    }
 }

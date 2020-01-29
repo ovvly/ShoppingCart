@@ -26,6 +26,8 @@ final class ProductListView: UIView {
     }
 
     private func setupView() {
+        backgroundColor = .white
+
         addSubview(tableView)
         addSubview(checkoutButton)
         setupCustomConstraints()
