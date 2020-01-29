@@ -117,20 +117,20 @@ final class ProductCell: UITableViewCell {
         priceLabel.widthAnchor.constraint(equalTo: unitLabel.widthAnchor).isActive = true
         priceLabel.centerYAnchor.constraint(equalTo: productNameLabel.centerYAnchor).isActive = true
 
-        amountLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor).isActive = true
+        amountLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 20).isActive = true
         amountLabel.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
         amountLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        amountLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        amountLabel.widthAnchor.constraint(equalToConstant: 100)
+        amountLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        amountLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
 
         increaseButton.centerYAnchor.constraint(equalTo: amountLabel.centerYAnchor).isActive = true
         increaseButton.leadingAnchor.constraint(equalTo: amountLabel.trailingAnchor, constant: 20).isActive = true
-        increaseButton.heightAnchor.constraint(equalToConstant: 50)
-        increaseButton.widthAnchor.constraint(equalToConstant: 50)
+        increaseButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        increaseButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
 
         decreaseButton.centerYAnchor.constraint(equalTo: amountLabel.centerYAnchor).isActive = true
         decreaseButton.trailingAnchor.constraint(equalTo: amountLabel.leadingAnchor, constant: -20).isActive = true
-        decreaseButton.heightAnchor.constraint(equalToConstant: 50)
-        decreaseButton.widthAnchor.constraint(equalToConstant: 50)
+        decreaseButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        decreaseButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
     }
 }
