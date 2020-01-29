@@ -51,6 +51,16 @@ final class CurrencySelectionViewController: UIViewController {
             }
         })
     }
+    
+    private func showFailureAlert() {
+        let alert = UIAlertController(title: "Error", message: "There was an issue with downloading data", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { [weak alert] _ in
+            alert?.dismiss(animated: true)
+        }
+        alert.addAction(okAction)
+        
+        present(alert, animated: true)
+    }
 }
 
 extension CurrencySelectionViewController: UITableViewDelegate {
@@ -58,8 +68,7 @@ extension CurrencySelectionViewController: UITableViewDelegate {
         viewModel.fetchRate(for: indexPath.row) { [weak self] result in
             switch result {
                 case .failure:
-                    //TODO: add error handling
-                    print("failed to fetch currency rate")
+                    self?.showFailureAlert()
                     return
                 case .success(let currency, let rate):
                     self?.delegate?.selected(currency: currency, rate: rate)
