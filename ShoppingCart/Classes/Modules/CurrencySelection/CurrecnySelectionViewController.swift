@@ -40,6 +40,7 @@ final class CurrencySelectionViewController: UIViewController {
     }
 
     private func fetchCurrencies() {
+        //TODO: add loading indicator
         viewModel.fetchCurrencies(completion: { [weak self] result in
             switch result {
                 case .success:
@@ -54,8 +55,15 @@ final class CurrencySelectionViewController: UIViewController {
 
 extension CurrencySelectionViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.fetchRate(for: indexPath.row) { [weak self] currency, rate in
-            self?.delegate?.selected(currency: currency, rate: rate)
+        viewModel.fetchRate(for: indexPath.row) { [weak self] result in
+            switch result {
+                case .failure:
+                    //TODO: add error handling
+                    print("failed to fetch currency rate")
+                    return
+                case .success(let currency, let rate):
+                    self?.delegate?.selected(currency: currency, rate: rate)
+            }
         }
     }
 }

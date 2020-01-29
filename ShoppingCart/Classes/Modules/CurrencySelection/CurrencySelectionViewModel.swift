@@ -1,7 +1,6 @@
 import Foundation
 
 typealias Currency = String
-typealias CurrencyRate = Decimal
 
 enum NetworkError: Error {
     case genericError
@@ -14,9 +13,11 @@ final class CurrencySelectionViewModel {
 
     private var currencies = [Currency]()
     private let currenciesService: CurrenciesService
+    private let rateService: CurrencyRateService
 
-    init(currenciesService: CurrenciesService) {
+    init(currenciesService: CurrenciesService, rateService: CurrencyRateService) {
         self.currenciesService = currenciesService
+        self.rateService = rateService
     }
 
     func currency(for index: Int) -> Currency {
@@ -37,10 +38,17 @@ final class CurrencySelectionViewModel {
         }
     }
 
-    func fetchRate(for index: Int, completion: (Currency, CurrencyRate) -> ()) {
-        let currency = "EUR"
-        let rate: Decimal = 1.1
-        completion(currency, rate)
+    func fetchRate(for index: Int, completion: @escaping (Result<(Currency, CurrencyRate), NetworkError>) -> ()) {
+        let currency = currencies[index]
+
+        rateService.fetchRate(for: currency) { result in
+            switch result {
+                case .failure:
+                    completion(.failure(NetworkError.genericError))
+                case .success(let rate):
+                    completion(.success((currency, rate)))
+            }
+        }
     }
 }
 

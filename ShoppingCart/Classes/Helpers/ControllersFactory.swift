@@ -21,7 +21,8 @@ final class ControllersFactory {
 
     func createCurrencySelectionViewController() -> CurrencySelectionViewController {
         let currenciesService = CurrenciesNetworkService()
-        let viewModel = CurrencySelectionViewModel(currenciesService: currenciesService)
+        let rateService = CurrencyRateNetworkService()
+        let viewModel = CurrencySelectionViewModel(currenciesService: currenciesService, rateService: rateService)
         let viewController = CurrencySelectionViewController(viewModel: viewModel)
         return viewController
     }
